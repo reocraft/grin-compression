@@ -40,13 +40,17 @@ public class HuffmanTree {
         }
 
         public boolean isLeaf() {
-            return (this instanceof Leaf);
+            return false;
         }
     }
 
     private class Leaf extends Node {
         public Leaf(short value, int freq) {
             super(value, freq);
+        }
+        @Override
+        public boolean isLeaf() {
+            return true;
         }
     }
 
