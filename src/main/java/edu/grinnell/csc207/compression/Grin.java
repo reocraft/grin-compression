@@ -21,17 +21,15 @@ public class Grin {
     public static void decode(String infile, String outfile) throws Exception {
         BitInputStream input = null;
         BitOutputStream output = null;
-        String inputFile = "files/" + infile;
-        String outputFile = "files/" + outfile;
 
         try {
-            input = new BitInputStream(inputFile);
+            input = new BitInputStream(infile);
             int magicCode = input.readBits(32);
             if (magicCode != MAGIC_NUM) {
                 throw new Exception(infile + " is not a valid Grin file.");
             }
             HuffmanTree tree = new HuffmanTree(input);
-            output = new BitOutputStream(outputFile);
+            output = new BitOutputStream(outfile);
             tree.decode(input, output);
 
         } catch (Exception e) {
@@ -95,8 +93,8 @@ public class Grin {
     public static void encode(String infile, String outfile) throws Exception {
         BitInputStream input = null;
         BitOutputStream output = null;
-        String inputFile = "files/" + infile;
-        String outputFile = "files/" + outfile;
+        String inputFile = infile;
+        String outputFile = outfile;
 
         try {
             Map<Short, Integer> freqMap = createFrequencyMap(inputFile);

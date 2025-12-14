@@ -74,8 +74,8 @@ public class HuffmanTree {
             pq.add(new Leaf(e.getKey(), e.getValue()));
         }
 
-        short EOF = 256;
-        pq.add(new Leaf(EOF, 1));
+        short endOfFile = 256;
+        pq.add(new Leaf(endOfFile, 1));
 
         while (pq.size() > 1) {
             Node x = pq.remove();
@@ -118,6 +118,12 @@ public class HuffmanTree {
         serializeH(root, out);
     }
 
+    /**
+     * Helper function for `serialize` method above, that helps write the
+     * HuffmanTree to the given file.
+     * @param n the node from the HuffmanTree we are inputing
+     * @param out the output file as a BitOutputStream
+     */
     public void serializeH(Node n, BitOutputStream out) {
         if (n.isLeaf()) {
             out.writeBit(0);

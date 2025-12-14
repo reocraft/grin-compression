@@ -10,5 +10,5 @@ Authors: Reo Saito
 
 ## Revision Log
 
-*   Wrote most of my implementations without committing halfway through
-*   Updated code in the hierarchy class structures in HuffmanTree.java by replacing instanceof leaf for the isLeaf() method by defaulting to false and overriding with true just in the leaf class, since instanceof has to do a pointercheck on the class it belongs to, then if not, then check its superclass, which felt like it will take slightly more resources.
+*   Previously, my data files had to be in `files/`, but now changed it so that is no longer the case.
+*   Fixed a lot of the styling issues that the autograder seemed to be upset about.
